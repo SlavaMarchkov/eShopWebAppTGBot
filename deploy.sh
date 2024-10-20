@@ -6,6 +6,6 @@ echo "Deploying..."
 
 git pull origin develop
 
-php82 composer.phar install --no-dev --prefer-dist --optimize-autoloader
+php82 composer.phar install
 
 echo "Deploy done!"
