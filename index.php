@@ -16,8 +16,8 @@ require_once __DIR__ . '/helpers/functions.php';
 require_once __DIR__ . '/helpers/constants.php';
 
 $telegram = new Api(TOKEN);
-$response = $telegram->getMe();
-debug($response, false);
+$response = $telegram->getUpdates();
+debug($response);
 /*try {
     $telegram->addCommands([
         App\Commands\HelpCommand::class,
