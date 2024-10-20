@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 if (!function_exists('debug')) {
-    function debug(mixed $data, bool $log = true): void
+    function debug(mixed $data, bool $log = true)
+    : void
     {
         if ($log) {
             file_put_contents(__DIR__ . '/../logs/logs.txt', print_r($data, true), FILE_APPEND);
@@ -14,7 +15,8 @@ if (!function_exists('debug')) {
 }
 
 if (!function_exists('send_request')) {
-    function send_request(string $url): mixed
+    function send_request(string $url)
+    : stdClass
     {
         return json_decode(
             file_get_contents(
@@ -24,8 +26,8 @@ if (!function_exists('send_request')) {
                     'http' => [
                         'ignore_errors' => true,
                     ],
-                ])
-            )
+                ]),
+            ),
         );
     }
 }
