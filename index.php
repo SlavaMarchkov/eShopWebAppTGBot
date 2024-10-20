@@ -16,8 +16,9 @@ require_once __DIR__ . '/helpers/functions.php';
 require_once __DIR__ . '/helpers/constants.php';
 
 $telegram = new Api(TOKEN);
-
-try {
+$response = $telegram->getMe();
+debug($response, false);
+/*try {
     $telegram->addCommands([
         App\Commands\HelpCommand::class,
         App\Commands\StartCommand::class,
@@ -25,7 +26,7 @@ try {
 } catch (TelegramSDKException $e) {
     debug($e->getMessage());
 }
-debug($telegram, false);
+
 //$update = $telegram->commandsHandler(true);
 $update = $telegram->commandsHandler(false, ['timeout' => 30]);
 debug($update);
@@ -49,4 +50,4 @@ if ($message) {
             'text' => 'Запрашиваю данные...',
         ]);
     }
-}
+}*/
