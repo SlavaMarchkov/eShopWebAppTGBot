@@ -25,7 +25,7 @@ try {
 } catch (TelegramSDKException $e) {
     debug($e->getMessage());
 }
-
+debug($telegram, false);
 //$update = $telegram->commandsHandler(true);
 $update = $telegram->commandsHandler(false, ['timeout' => 30]);
 debug($update);
