@@ -15,9 +15,13 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/helpers/functions.php';
 require_once __DIR__ . '/helpers/constants.php';
 
+// https://eshop.lukaselektro.ru/
+
 $telegram = new Api(TOKEN);
-$response = $telegram->getUpdates();
-debug($response);
+$response = $telegram->setWebhook([
+    'url' => 'https://eshop.lukaselektro.ru/' . TOKEN . '/webhook'
+]);
+debug($response, false);
 /*try {
     $telegram->addCommands([
         App\Commands\HelpCommand::class,
