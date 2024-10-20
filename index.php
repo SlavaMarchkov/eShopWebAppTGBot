@@ -15,14 +15,9 @@ require_once __DIR__ . '/config.php';
 require_once __DIR__ . '/helpers/functions.php';
 require_once __DIR__ . '/helpers/constants.php';
 
-// https://eshop.lukaselektro.ru/
-
 $telegram = new Api(TOKEN);
-$response = $telegram->setWebhook([
-    'url' => 'https://eshop.lukaselektro.ru/' . TOKEN . '/webhook'
-]);
-debug($response, false);
-/*try {
+
+try {
     $telegram->addCommands([
         App\Commands\HelpCommand::class,
         App\Commands\StartCommand::class,
@@ -31,8 +26,8 @@ debug($response, false);
     debug($e->getMessage());
 }
 
-//$update = $telegram->commandsHandler(true);
-$update = $telegram->commandsHandler(false, ['timeout' => 30]);
+$update = $telegram->commandsHandler(true);
+
 debug($update);
 
 $chat_id = $update->getChat()->get('id') ?? 0;
@@ -54,4 +49,4 @@ if ($message) {
             'text' => 'Запрашиваю данные...',
         ]);
     }
-}*/
+}
